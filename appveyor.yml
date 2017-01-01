@@ -10,7 +10,8 @@ environment:
     CONAN_USERNAME: "russelltg"
     CONAN_CHANNEL: "stable"
     CONAN_TOTAL_PAGES: 4
-    
+    CONAN_PASSWORD:
+        secure: pQ38xT4+8uWvKYmblQYWyQ==
     matrix:
         - CONAN_CURRENT_PAGE: 1
         - CONAN_CURRENT_PAGE: 2
