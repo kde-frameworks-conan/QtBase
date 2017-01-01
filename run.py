@@ -25,6 +25,7 @@ if __name__ == "__main__":
                     builder.add({"arch": "x86_64",
                                  "build_type": build_type,
                                  "compiler": "apple-clang",
-                                 "compiler.version": compiler_version})
+                                 "compiler.version": compiler_version,
+                                 "llvm:shared": shared})
 
     builder.run()
