@@ -139,7 +139,7 @@ class QtBaseConan(ConanFile):
                 'Sql', 'Test', 'Widgets', 'Xml']
         
         # add qmake etc to path
-        self.env.path.append(os.path.join(self.package_folder, "bin"))
+        self.env_info.path.append(os.path.join(self.package_folder, "bin"))
 
         self.cpp_info.libs = []
         self.cpp_info.includedirs = ["include"]
