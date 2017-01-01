@@ -42,6 +42,7 @@ env:
         - CONAN_GCC_VERSIONS=6.2 CONAN_CURRENT_PAGE=3 CONAN_USE_DOCKER=1
         - CONAN_GCC_VERSIONS=6.2 CONAN_CURRENT_PAGE=4 CONAN_USE_DOCKER=1
 
+# OSX
 matrix:
    include:
        - os: osx
