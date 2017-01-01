@@ -83,8 +83,6 @@ class QtBaseConan(ConanFile):
             build_args = []
         self.output.info("Using '%s %s' to build" % (build_command, " ".join(build_args)))
 
-        vcvars = vcvars_command(self.settings)
-        vcvars = vcvars + " && " if vcvars else ""
         set_env = 'SET PATH={dir}/qtbase/bin;{dir}/gnuwin32/bin;%PATH%'.format(dir=self.conanfile_directory)
         args += ["-opengl %s" % self.options.opengl]
         # it seems not enough to set the vcvars for older versions, it works fine
@@ -97,6 +95,9 @@ class QtBaseConan(ConanFile):
             if self.settings.compiler.version == "10":
                 args += ["-platform win32-msvc2010"]
 
+        vcvars = vcvars_command(self.settings)
+        vcvars = vcvars + " && " if vcvars else ""
+        
         self.run("cd %s && %s && %s configure %s"
                  % (self.folderName, set_env, vcvars, " ".join(args)))
         self.run("cd %s && %s %s %s"
