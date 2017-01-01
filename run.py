@@ -6,7 +6,7 @@ if __name__ == "__main__":
     for shared in [True, False]:
         for build_type in ["Debug", "Release"]:
             for gccver in builder.gcc_versions:
-                self.add({"arch": "x86_64",
+                builder.add({"arch": "x86_64",
                             "build_type": build_type,
                             "compiler": "gcc",
                             "compiler.version": gccver,
