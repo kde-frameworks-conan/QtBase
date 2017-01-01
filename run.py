@@ -3,6 +3,14 @@ from conan.packager import ConanMultiPackager
 
 if __name__ == "__main__":
     builder = ConanMultiPackager()
-    builder.add_common_builds(shared_option_name="QtBase:shared", pure_c=False)
-    
+    for shared in [True, False]:
+        for build_type in ["Debug", "Release"]:
+            for gccver in builder.gcc_versions:
+                self.add({"arch": "x86_64",
+                            "build_type": build_type,
+                            "compiler": "gcc",
+                            "compiler.version": gccver,
+                            "compiler.libcxx": "libstdc++11"},
+                            {"QtBase:shared": shared})
+
     builder.run()
