@@ -10,6 +10,7 @@ env:
         - CONAN_USERNAME=russelltg
         - CONAN_CHANNEL=stable
         - CONAN_TOTAL_PAGES=4
+        # password in in travis settings
         
     matrix:
         - CONAN_GCC_VERSIONS=4.8 CONAN_CURRENT_PAGE=1 CONAN_USE_DOCKER=1  
