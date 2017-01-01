@@ -66,6 +66,9 @@ class QtBaseConan(ConanFile):
         else:
             args.append("-release")
 
+        if self.settngs.os == "Macos":
+            args.append("-no-framework")
+
         if self.settings.os == "Windows":
             if self.settings.compiler == "Visual Studio":
                 self._build_msvc(args)
