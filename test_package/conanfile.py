@@ -9,6 +9,7 @@ username = os.getenv("CONAN_USERNAME", "russelltg")
 class DefaultNameConan(ConanFile):
     name="QtBaseTest"
     requires = "QtBase/5.7.1@%s/%s" % (username, channel)
+    settings = "os", "arch", "compiler", "build_type"
     generators="cmake"
 
     def build(self):
