@@ -66,7 +66,7 @@ class QtBaseConan(ConanFile):
         else:
             args.append("-release")
 
-        if self.settngs.os == "Macos":
+        if self.settings.os == "Macos":
             args.append("-no-framework")
 
         if self.settings.os == "Windows":
