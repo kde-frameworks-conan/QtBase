@@ -101,7 +101,7 @@ class QtBaseConan(ConanFile):
         vcvars = vcvars_command(self.settings)
         vcvars = vcvars + " && " if vcvars else ""
         
-        self.run("cd %s && %s && %s configure -make nmake %s"
+        self.run("cd %s && %s && %s configure %s"
                  % (self.folderName, set_env, vcvars, " ".join(args)))
         self.run("cd %s && %s %s %s"
                  % (self.folderName, vcvars, build_command, " ".join(build_args)))

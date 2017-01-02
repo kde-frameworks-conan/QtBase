@@ -6,7 +6,16 @@ if __name__ == "__main__":
     builder = ConanMultiPackager()
     
     if platform.system() == "Windows":
-        builder.add_common_builds()
+        for shared = [True, False]:
+            for build_type in ["Debug", "Release"]:
+                for vers in builder.visual_versions:
+                    for runtimes in builder.visual_runtimes:
+                        builder.add({"arch": "x86_64",
+                                     "build_type": build_type,
+                                     "compiler": "Visual Studio",
+                                     "compiler.version", vers,
+                                     "compiler.runtime", runtimes},
+                                    {"QtBase:shared", shared})
     
     if platform.system() == "Linux":
         for shared in [True, False]:
@@ -27,6 +36,6 @@ if __name__ == "__main__":
                                  "build_type": build_type,
                                  "compiler": "apple-clang",
                                  "compiler.version": compiler_version,
-                                 "llvm:shared": shared})
+                                 "QtBase:shared": shared})
 
     builder.run()
