@@ -13,9 +13,9 @@ if __name__ == "__main__":
                         builder.add({"arch": "x86_64",
                                      "build_type": build_type,
                                      "compiler": "Visual Studio",
-                                     "compiler.version", vers,
-                                     "compiler.runtime", runtimes},
-                                    {"QtBase:shared", shared})
+                                     "compiler.version": vers,
+                                     "compiler.runtime": runtimes},
+                                    {"QtBase:shared": shared})
     
     if platform.system() == "Linux":
         for shared in [True, False]:
